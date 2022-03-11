@@ -13,6 +13,7 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 client = MongoClient('mongodb://localhost:27017/')
 db = client.test_database
 
+
 # Просмотреть содержимое коллекции
 @app.route('/')
 def index():
@@ -121,26 +122,34 @@ def insert_one(product_id):
     )
 
 
-# curl -X DELETE http://localhost:5000/delete_one/6228ba9c7667c0cf85c8bb67
+# work!
+# curl -X DELETE http://localhost:5000/delete_one/6229cc70ad7f7f4a53ce9803
 # Удалить товар по ID
 @app.route('/delete_one/<product_id>', methods=['DELETE'])
 def delete_one_product(product_id):
+    # products = db.product.find()
+    # data_before = []
+    # for product in products:
+    #     product['_id'] = str(product['_id'])  
+    #     data_before.append(product)
+    
     item = {
-        '_id': product_id
+        '_id': ObjectId(product_id)
     }
     db.product.delete_one(item)
     # db.products.delete_many(item)
-    
+
     # products = db.product.find()
-    # data = []
+    # data_after = []
     # for product in products:
-    #   product['_id'] = str(product['_id'])  
-    #   data.append(product)
+    #     product['_id'] = str(product['_id'])  
+    #     data_after.append(product)
 
     return jsonify(
         status=True,
         message='A product deleted successfully',
-        # data=data
+        # data_before=data_before,
+        # data_after=data_after
     ), 200
 
 
