@@ -38,7 +38,7 @@
 - __Получить список названий товаров, с возможностью фильтрации по выбранному параметру и его значению__ (def get_product_by_parameter(parameter, value)):
     * Фильтрация __*по названию*__: `curl -X GET http://localhost:5000/by_parameter/name/product1`, где product1 - название вашего товара
     * Фильтрация __*по ID*__: `curl -X GET http://localhost:5000/by_parameter/_id/622b5087d143ec233eae2bd5`, где 622b5087d143ec233eae2bd5 - ID вашего товара
-    * Фильтрация __*по описанию*__: `curl -X GET http://localhost:5000/by_parameter/description/123456`, где 1234 - описание товара
+    * Фильтрация __*по описанию*__: `curl -X GET http://localhost:5000/by_parameter/description/123456`, где 123456 - описание товара
     * Фильтрация __*по параметрам*__ (в данном случае a или b): `curl -X GET http://localhost:5000/by_parameter/a/yesss`  
-- __Получить детали товара по ID__ (def get_product_details_by_id(product_id)): `curl -X GET http://localhost:5000/products/622b5087d143ec233eae2bd5`, где 622b5087d143ec233eae2bd5 - ID вашего товара
+- __Получить детали товара по ID__ (def get_product_details_by_id(product_id)): `curl -X GET http://localhost:5000/product/622b5087d143ec233eae2bd5`, где 622b5087d143ec233eae2bd5 - ID вашего товара
 
