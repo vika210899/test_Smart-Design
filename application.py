@@ -96,7 +96,7 @@ def get_product_by_parameter(parameter, value):
     if parameter == '_id':
         products = db.product.find(
             {"_id": ObjectId(value)}, {"name": 1, "_id": 0})
-    elif parameter == 'english' or parameter == 'german':
+    elif parameter == 'a' or parameter == 'b':
         products = db.product.find(
             {'options': {'$elemMatch': {parameter: value}}}, {"name": 1, "_id": 0})
     else:
